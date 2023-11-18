@@ -29,7 +29,6 @@ class AzureOpenAILLM(OpenAILLM):
     def __init__(self,
                  model_name: str = "gpt-3.5-turbo",  # why do i need this?
                  *,
-                 api_key:  Optional[str] = None,
                  azure_deployment: Optional[str] = None,
                  azure_endpoint: Optional[str] = None,
                  azure_api_version: Optional[str] = None,
