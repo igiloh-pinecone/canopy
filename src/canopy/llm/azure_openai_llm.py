@@ -45,21 +45,10 @@ class AzureOpenAILLM(OpenAILLM):
         >>> os.environ['AZURE_DEPLOYMENT'] = "YOUR AZURE DEPLOYMENT'S NAME"
 
         >>> from canopy.models.data_models import UserMessage
-        >>> llm = AzureOpenAILLM(azure_deployment=azure_deployment)
+        >>> llm = AzureOpenAILLM()
         >>> messages = [UserMessage(content="Hello! How are you?")]
         >>> llm.chat_completion(messages)
 
-        Args:
-            azure_api_version: The Auzre OpenAI API version, e.g. "2023-05-15".
-                      Find versions here: https://learn.microsoft.com/en-us/rest/api/azureopenai/files
-            model_name: The name of the deployed Azure model you are connecting to. This is *not* the name of the
-                      OpenAI LLM underlying your deployed Azure model.
-            azure_api_key: Azure API key. Find at https://portal.azure.com >> Resource Management.
-            base_url: Azure endpoint. Find at https://portal.azure.com >> Resource Management.
-            **kwargs: Generation default parameters to use for each request. See https://platform.openai.com/docs/api-reference/chat/create
-                      For example, you can set the temperature, top_p, etc.
-                      These params can be overridden by passing a `model_params` argument to the `chat_completion` or
-                      `enforced_function_call` methods.
         """
         super().__init__(model_name)
 
