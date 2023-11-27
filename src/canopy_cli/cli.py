@@ -200,7 +200,7 @@ def health(url):
 
 @cli.command(
     help=(
-        """Create a new Pinecone index that that will be used by Canopy.
+        """Create a    new Pinecone index that that will be used by Canopy.
         \b
         A Canopy service can not be started without a Pinecone index which is configured to work with Canopy.
         This command will create a new Pinecone index and configure it in the right schema.
