@@ -5,6 +5,7 @@ from canopy.knowledge_base.models import KBDocChunk
 from canopy.models.data_models import Document
 from canopy.utils.config import ConfigurableMixin
 
+DELIMETER = "#"
 
 class Chunker(ABC, ConfigurableMixin):
 
@@ -57,3 +58,8 @@ class Chunker(ABC, ConfigurableMixin):
     @abstractmethod
     async def achunk_single_document(self, document: Document) -> List[KBDocChunk]:
         raise NotImplementedError()
+
+    def generate_chunk_id(self, document_id: str, chunk_index: int) -> str:
+        if DELIMETER in document_id:
+            raise ValueError(f"document_id cannot contain {DELIMETER}")
+        return f"{document_id}{DELIMETER}{chunk_index}"
