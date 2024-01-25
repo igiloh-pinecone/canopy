@@ -96,9 +96,9 @@ class AzureOpenAILLM(OpenAILLM):
                 ) from e
             else:
                 raise RuntimeError(
-                    f"Failed to connect to your Azure OpenAI. Please make sure that "
-                    f"you have provided the correct deployment name: {self.model_name} "
-                    f"and API version: {self._client._api_version}. "
+                    f"Failed to connect to your Azure OpenAI chat deployment. Please "
+                    f"make sure that you have provided the correct deployment name: "
+                    f"{self.model_name} and API version: {self._client._api_version}. "
                     f"Underlying Error:\n{self._format_openai_error(e)}"
                 ) from e
         else:

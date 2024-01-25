@@ -64,9 +64,10 @@ class AzureOpenAIRecordEncoder(OpenAIRecordEncoder):
             )
         elif isinstance(err, openai.NotFoundError):
             return (
-                f"Failed to connect to your Azure OpenAI. Please make sure that "
-                f"you have provided the correct deployment name: {self.model_name} "
-                f"and API version: {self._client._api_version}. "
+                f"Failed to connect to your Azure OpenAI embeddings deployment. "
+                f"Please make sure that you have provided the correct deployment name: "
+                f"'{self._dense_encoder._model_name}' "
+                f"and API version: '{self._dense_encoder._client._api_version}'. "
                 f"Underlying Error:\n{self._format_openai_error(err)}"
             )
         else:
